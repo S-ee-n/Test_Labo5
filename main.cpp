@@ -95,13 +95,10 @@ int main() {
     cout << pt_entiere << endl;
 
     int numero_paquet = ceil(pt_entiere.size()/3.0);
-    cout << "pt_entiere.size() = " << pt_entiere.size() << endl;
-    cout << "pt_entiere.size()/3.0 = " << pt_entiere.size()/3.0 << endl;
-    cout << "numero paquet = " << numero_paquet << endl;
 
-/*    for (int i = numero_paquet; i >= 1; --i) {
-        exprime_paquet_mille(pt_entiere, numero_paquet);
-        exprime_separation(numero_paquet);
+    for (int i = numero_paquet; i >= 1; --i) {
+        exprime_paquet_mille(pt_entiere, i);
+        exprime_separation(i);
     }
-*/
+
 }
