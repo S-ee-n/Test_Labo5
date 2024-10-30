@@ -28,7 +28,6 @@ double saisie() {
     return n;
 }
 
-
 // chaque paquet de mille :
 
 void exprime_paquet_mille(string nombre, int numero_paquet) {
@@ -122,19 +121,17 @@ void exprime_separation(int numero_paquet) {
 }
 
 int main() {
+
+    // Conversion en string de la saisie utilisateur
     double n = saisie();
     stringstream flux_pour_pt_entiere;
     flux_pour_pt_entiere << fixed << setprecision(0) << n;
     string pt_entiere = flux_pour_pt_entiere.str();
     cout << pt_entiere << endl;
 
+
     int numero_paquet = ceil(pt_entiere.size() / 3.0);
 
-    /*    for (int i = numero_paquet; i >= 1; --i) {
-            exprime_paquet_mille(pt_entiere, numero_paquet);
-            exprime_separation(numero_paquet);
-        }
-    */
     for (int i = numero_paquet; i >= 1; --i) {
         exprime_paquet_mille(pt_entiere, i);
         exprime_separation(i);
