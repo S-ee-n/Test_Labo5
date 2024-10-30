@@ -125,16 +125,24 @@ int main() {
     // Conversion en string de la saisie utilisateur
     double n = saisie();
     stringstream flux_pour_pt_entiere;
+    stringstream flux_pour_pt_decimale;
+
     flux_pour_pt_entiere << fixed << setprecision(0) << n;
+    flux_pour_pt_decimale << fixed << setprecision(0) << (n-ceil(n-1))*100;
+
     string pt_entiere = flux_pour_pt_entiere.str();
-    cout << pt_entiere << endl;
+    string pt_decimale = flux_pour_pt_decimale.str();
 
+    cout << "(string) pt_entiere = " << pt_entiere << endl;
+    cout << "(string) pt_decimale = " << pt_decimale << endl;
 
+/*
     int numero_paquet = ceil(pt_entiere.size() / 3.0);
 
     for (int i = numero_paquet; i >= 1; --i) {
         exprime_paquet_mille(pt_entiere, i);
         exprime_separation(i);
     }
+*/
 
 }
