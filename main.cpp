@@ -38,25 +38,23 @@ void exprime_paquet_mille(string nombre, int numero_paquet) {
             break;
         case '1': cout << "cent ";
             break;
-        case '2': cout << "deux ";
+        case '2': cout << "deux cents ";
             break;
-        case '3': cout << "trois ";
+        case '3': cout << "trois cents ";
             break;
-        case '4': cout << "quatre ";
+        case '4': cout << "quatre cents ";
             break;
-        case '5': cout << "cinq ";
+        case '5': cout << "cinq cents ";
             break;
-        case '6': cout << "six ";
+        case '6': cout << "six cents ";
             break;
-        case '7': cout << "sept ";
+        case '7': cout << "sept cents ";
             break;
-        case '8': cout << "huit ";
+        case '8': cout << "huit cents ";
             break;
-        case '9': cout << "neuf ";
+        case '9': cout << "neuf cents ";
             break;
     }
-
-    cout << "cent ";
 
     // dizaines
     switch (nombre[nombre.length() - 3 * numero_paquet + 1]) {
@@ -136,13 +134,25 @@ int main() {
     cout << "(string) pt_entiere = " << pt_entiere << endl;
     cout << "(string) pt_decimale = " << pt_decimale << endl;
 
-/*
     int numero_paquet = ceil(pt_entiere.size() / 3.0);
 
+    // exprime la partie entière en CHF
     for (int i = numero_paquet; i >= 1; --i) {
         exprime_paquet_mille(pt_entiere, i);
         exprime_separation(i);
     }
-*/
 
+    cout << "francs et ";
+
+    // exprime la partie decimale en ct
+    for (int i = numero_paquet; i >= 1; --i) {
+        exprime_paquet_mille(pt_decimale, i);
+        // pas de "exprime_separation()" car pas besoin ici
+    }
+
+    cout << "centimes." << endl;
+
+    return 0;
 }
+
+

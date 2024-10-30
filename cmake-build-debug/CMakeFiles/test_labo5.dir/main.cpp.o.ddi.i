@@ -60220,25 +60220,23 @@ void exprime_paquet_mille(string nombre, int numero_paquet) {
             break;
         case '1': cout << "cent ";
             break;
-        case '2': cout << "deux ";
+        case '2': cout << "deux cents ";
             break;
-        case '3': cout << "trois ";
+        case '3': cout << "trois cents ";
             break;
-        case '4': cout << "quatre ";
+        case '4': cout << "quatre cents ";
             break;
-        case '5': cout << "cinq ";
+        case '5': cout << "cinq cents ";
             break;
-        case '6': cout << "six ";
+        case '6': cout << "six cents ";
             break;
-        case '7': cout << "sept ";
+        case '7': cout << "sept cents ";
             break;
-        case '8': cout << "huit ";
+        case '8': cout << "huit cents ";
             break;
-        case '9': cout << "neuf ";
+        case '9': cout << "neuf cents ";
             break;
     }
-
-    cout << "cent ";
 
 
     switch (nombre[nombre.length() - 3 * numero_paquet + 1]) {
@@ -60315,8 +60313,26 @@ int main() {
     string pt_entiere = flux_pour_pt_entiere.str();
     string pt_decimale = flux_pour_pt_decimale.str();
 
-    cout << "(double) n = " << n << endl;
     cout << "(string) pt_entiere = " << pt_entiere << endl;
     cout << "(string) pt_decimale = " << pt_decimale << endl;
-# 149 "/home/as7ama/CLionProjects/Test_Labo5/main.cpp"
+
+    int numero_paquet = ceil(pt_entiere.size() / 3.0);
+
+
+    for (int i = numero_paquet; i >= 1; --i) {
+        exprime_paquet_mille(pt_entiere, i);
+        exprime_separation(i);
+    }
+
+    cout << "francs et ";
+
+
+    for (int i = numero_paquet; i >= 1; --i) {
+        exprime_paquet_mille(pt_decimale, i);
+
+    }
+
+    cout << "centimes." << endl;
+
+    return 0;
 }
