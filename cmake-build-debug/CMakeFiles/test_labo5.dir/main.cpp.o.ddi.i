@@ -60324,15 +60324,19 @@ int main() {
         exprime_separation(i);
     }
 
-    cout << "francs et ";
+    cout << "francs ";
 
 
-    for (int i = numero_paquet; i >= 1; --i) {
-        exprime_paquet_mille(pt_decimale, i);
+    if (pt_decimale != "100") {
+        cout << "et ";
 
+        for (int i = numero_paquet; i >= 1; --i) {
+            exprime_paquet_mille(pt_decimale, i);
+
+        }
+
+        cout << "centimes." << endl;
     }
-
-    cout << "centimes." << endl;
 
     return 0;
 }

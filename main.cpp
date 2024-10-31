@@ -120,12 +120,12 @@ void exprime_separation(int numero_paquet) {
 
 int main() {
 
-    // Conversion en string de la saisie utilisateur
+    // Conversion en string de la saisie utilisateur :
     double n = saisie();
-    stringstream flux_pour_pt_entiere;
-    stringstream flux_pour_pt_decimale;
+    stringstream flux_pour_pt_entiere; // flux chaine de caracteres destine a la partie entiere
+    stringstream flux_pour_pt_decimale; // flux chaine de caracteres destine a la partie decimale
 
-    flux_pour_pt_entiere << fixed << setprecision(0) << n;
+    flux_pour_pt_entiere << fixed << setprecision(0) << n; // insertion du nombre avec une precision de 0 c. s.
     flux_pour_pt_decimale << fixed << setprecision(0) << (n-ceil(n-1))*100;
 
     string pt_entiere = flux_pour_pt_entiere.str();
@@ -142,15 +142,19 @@ int main() {
         exprime_separation(i);
     }
 
-    cout << "francs et ";
+    cout << "francs ";
 
     // exprime la partie decimale en ct
-    for (int i = numero_paquet; i >= 1; --i) {
-        exprime_paquet_mille(pt_decimale, i);
-        // pas de "exprime_separation()" car pas besoin ici
-    }
+    if (pt_decimale != "100") {
+        cout << "et ";
 
-    cout << "centimes." << endl;
+        for (int i = numero_paquet; i >= 1; --i) {
+            exprime_paquet_mille(pt_decimale, i);
+            // pas de "exprime_separation()" car pas besoin ici
+        }
+
+        cout << "centimes." << endl;
+    }
 
     return 0;
 }
